@@ -1,64 +1,53 @@
-"use client";
-
-import { useState } from "react";
-
-import { mockPatient } from "@/lib/site-data";
 import { ActionLink, ArtPanel } from "@/components/site-sections";
 
-function predictedLoss(weight) {
-  return Math.max(18, Math.round(weight * 0.18));
-}
+const HERO_POINTS = [
+  "Programs and pricing shown up front",
+  "Assessment before clinician review",
+  "Discreet delivery when prescribed",
+  "Refills and follow-up in one portal"
+];
 
 export function WeightLossHero() {
-  const [weightInput, setWeightInput] = useState(mockPatient.currentWeight);
-  const possibleLoss = predictedLoss(weightInput);
-
   return (
     <section className="hero glp-hero">
       <div className="shell hero-grid glp-grid">
         <div className="hero-copy">
-          <p className="eyebrow">Doctor-guided weight loss</p>
-          <h1>Lose up to {possibleLoss} pounds with a provider-guided GLP-1 plan.</h1>
+          <p className="eyebrow">Clinician-guided weight-loss care</p>
+          <h1>Medical weight-loss care with clear options and real follow-through.</h1>
           <p className="lede">
-            The public Medvi-style funnel centers on clear pricing, clinician review, online
-            follow-up, and a patient portal that handles refills, appointments, lab reminders, and
-            support.
+            Review pricing, compare program formats, and start with a short assessment. If care
+            may fit, a licensed clinician reviews your intake before any treatment recommendation
+            is made.
           </p>
           <div className="hero-actions-row">
-            <ActionLink href="/login">Take the Assessment</ActionLink>
-            <ActionLink href="/dashboard" variant="ghost">
-              Preview the Portal
+            <ActionLink href="/quiz">Start assessment</ActionLink>
+            <ActionLink href="#programs" variant="ghost">
+              See programs and pricing
             </ActionLink>
           </div>
           <ul className="icon-list">
-            <li>100% online evaluation</li>
-            <li>Provider review before prescribing</li>
-            <li>Unlimited support</li>
-            <li>Fast, discreet shipping</li>
-            <li>Portal-led refill workflow</li>
+            {HERO_POINTS.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </div>
+
         <div className="hero-visual">
           <ArtPanel
-            detail="Then refill pricing continues through the portal."
+            detail="Revya is built to make the next step clear before, during, and after treatment review."
             kind="weight-loss"
-            label="First month from $179"
+            label="Programs from $179/mo"
+            imageAlt="Patient during a healthy weight-loss journey"
+            priority
+            imageSrc="/images/hero-weightloss.jpg"
           />
-          <div className="calculator-card">
-            <p className="mini-label">Weight goal estimator</p>
-            <label>
-              Current weight
-              <input
-                max="320"
-                min="160"
-                onChange={(event) => setWeightInput(Number(event.target.value))}
-                type="range"
-                value={weightInput}
-              />
-            </label>
-            <div className="calculator-values">
-              <span>{weightInput} lbs</span>
-              <strong>Potential loss: {possibleLoss} lbs</strong>
+          <div className="floating-card">
+            <p className="mini-label">After the assessment</p>
+            <strong>You see your route first, then a clinician reviews the intake before care begins.</strong>
+            <div className="mini-list">
+              <span>Review before submit</span>
+              <span>Clinician-led next step</span>
+              <span>Portal support after approval</span>
             </div>
           </div>
         </div>

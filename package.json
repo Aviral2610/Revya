@@ -1,5 +1,5 @@
 {
-  "name": "medvi-next",
+  "name": "revya-next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,13 @@
   },
   "dependencies": {
     "next": "15.x",
+    "next-auth": "^4.24.13",
     "react": "19.x",
     "react-dom": "19.x"
+  },
+  "devDependencies": {
+    "@types/node": "25.5.2",
+    "@types/react": "19.2.14",
+    "typescript": "6.0.2"
   }
 }

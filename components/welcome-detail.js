@@ -1,26 +1,31 @@
 import { dosageTracks } from "@/lib/site-data";
 
 const detailLists = {
+  doctors: [
+    "Licensed clinicians review assessment results, prescribing decisions, dose changes, and follow-up questions.",
+    "Care coordinators help with scheduling, portal tasks, and routine member support.",
+    "Pharmacy fulfillment partners handle prescription processing and discreet shipment updates."
+  ],
   refills: [
-    "Patients are notified by email and text when a refill becomes available.",
-    "Refills are completed inside the patient portal.",
-    "Oral programs unlock after 21 days, injectable programs after the third dose.",
-    "Provider review or a new appointment may be required before approval."
+    "Email or text reminders can prompt you when a refill check-in opens.",
+    "Refill requests are submitted inside the patient portal, not through scattered support threads.",
+    "Your clinician may request updated labs or a follow-up visit before approving the next shipment.",
+    "Dose changes are reviewed case by case rather than advanced automatically."
   ],
   billing: [
-    "Membership is month-to-month and renews automatically every 28 days.",
-    "The public flow frames billing as a single recurring membership plus treatment cost.",
-    "Patients can cancel through the portal or support."
+    "Membership billing is designed to stay straightforward, with recurring details visible from your account.",
+    "Medication costs can vary by treatment path, and pricing context should stay visible before checkout.",
+    "Billing questions, account changes, and support requests can be routed through the portal."
   ],
   continuing: [
-    "Transfer patients can upload proof from another provider in the documents area.",
-    "Public requirements include medication, dose, frequency, patient name, DOB, and fill or written date.",
-    "If upload is difficult, the guide also offers support email as a fallback."
+    "Transfer patients can upload prescription records and care documents through the portal.",
+    "Helpful records include the medication name, dose, frequency, patient details, and a recent written or fill date.",
+    "If anything is missing, the care team can tell you what is still needed before review."
   ],
   labs: [
-    "Labs are required for later dosage increases and mandatory after month three.",
-    "Recent outside labs may be uploaded if they are still valid.",
-    "Supported public partners include large national lab networks."
+    "Updated labs may be requested before certain dose increases or treatment milestones.",
+    "Recent outside labs may still be usable if they match what your clinician needs.",
+    "Lab status stays visible in the portal so you know whether anything is still outstanding."
   ]
 };
 
@@ -56,8 +61,7 @@ export function WelcomeDetail({ id }) {
 
   return (
     <p className="welcome-note">
-      This section is represented in the dashboard demo as a task card, account module, or care
-      team action.
+      This step connects directly to the matching portal task, support workflow, or clinician review.
     </p>
   );
 }

@@ -8,13 +8,21 @@ export default function NotFound() {
         <div className="shell cta-panel">
           <div>
             <p className="eyebrow">Not found</p>
-            <h1>This route is not part of the clone.</h1>
-            <p className="lede-alt">Use one of the implemented public or portal routes below.</p>
+            <h1>The page you were looking for is not available.</h1>
+            <p className="lede-alt">
+              Start with Revya weight-loss care, the online assessment, or the patient portal.
+            </p>
           </div>
           <div className="cta-actions">
-            <ActionLink href="/">Go Home</ActionLink>
+            <ActionLink href="/">Go home</ActionLink>
+            <ActionLink href="/weight-loss" variant="ghost">
+              See programs and pricing
+            </ActionLink>
+            <ActionLink href="/quiz" variant="ghost">
+              Start assessment
+            </ActionLink>
             <ActionLink href="/dashboard" variant="ghost">
-              Open Dashboard
+              Preview patient portal
             </ActionLink>
           </div>
         </div>

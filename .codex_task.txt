@@ -1,0 +1,33 @@
+Task: Wire Supabase into Revya code and finish Google auth integration.
+
+Repo: /Users/aditya/.openclaw/workspace-aviral/projects/medvi-next
+
+Available credentials/env to use:
+- NEXT_PUBLIC_SUPABASE_URL=https://kdhsdsadeoeggfagrdio.supabase.co
+- NEXT_PUBLIC_SUPABASE_ANON_KEY=<already set on Vercel; also create local env scaffolding if needed>
+- SUPABASE_SERVICE_ROLE_KEY=<already set on Vercel; also create local env scaffolding if needed>
+
+Goals:
+1. Add Supabase client setup for browser and server usage.
+2. Replace/demo-proof current mock portal/login persistence where appropriate with Supabase-backed scaffolding.
+3. Finish Google auth integration using NextAuth/Auth.js already started.
+4. Ensure env vars expected by auth are documented in .env.local.example or similar.
+5. Keep current UI intact.
+6. Do not break build.
+
+Specific tasks:
+- Add lib/supabase client helpers.
+- Ensure login flow can support Google provider wiring cleanly.
+- Add middleware or route protection for /dashboard if appropriate, but do not overcomplicate.
+- If real DB schema is needed, add SQL/setup notes file with the minimal tables needed.
+- Make the code production-ready enough that once GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are supplied, auth can work.
+- Keep graceful fallback behavior if auth env vars are missing.
+- Update any relevant components/pages to reflect real auth state instead of pure mock behavior when possible.
+
+After coding:
+- Run npm run build
+- Fix errors
+- Summarize files changed
+
+When completely finished, run:
+openclaw system event --text "Done: Revya Supabase + Google auth wiring complete" --mode now

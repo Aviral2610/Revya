@@ -1,50 +1,81 @@
+import Image from "next/image";
+
 import {
   doctors,
   faqs,
   processSteps,
   productCards,
-  testimonials,
+  trustFeatures,
   weightLossStats
 } from "@/lib/site-data";
 import { FaqList } from "@/components/faq-list";
+import { JsonLd } from "@/components/json-ld";
+import { QuizEntryPanel } from "@/components/quiz/entry-panel";
 import {
   ActionLink,
   ArtPanel,
   DoctorGrid,
   SiteFooter,
-  SiteHeader,
-  TestimonialGrid,
-  TextLink
+  SiteHeader
 } from "@/components/site-sections";
 import { WeightLossHero } from "@/components/weight-loss-hero";
+import { getImageDimensions } from "@/lib/image-assets";
+import { buildFaqSchema, buildPageSchema, buildProductSchemas, getPageMetadata } from "@/lib/seo";
+
+export const metadata = getPageMetadata("weightLoss");
 
 export default function WeightLossPage() {
   return (
     <>
+      <JsonLd
+        data={buildPageSchema("weightLoss", [buildFaqSchema(), ...buildProductSchemas()])}
+      />
       <div className="promo-bar">
-        Public-funnel clone: first-month promo, locked-in refill pricing, and provider review
-        surfaced up front.
+        Programs from $179/mo. Assessment first. Clinician review required before prescribing.
       </div>
       <SiteHeader />
       <main>
         <WeightLossHero />
 
-        <section className="section">
-          <div className="shell section-heading compact">
+        <section className="section" id="programs">
+          <div className="shell section-heading">
             <div>
-              <p className="eyebrow">Our products</p>
-              <h2>Four public product lanes, one consistent portal.</h2>
+              <p className="eyebrow">Programs and pricing</p>
+              <h2>Compare the available care paths before you begin.</h2>
+              <p className="lede-alt">
+                Revya shows the major program formats up front so patients can understand the
+                range of options before taking the assessment. Final program fit still depends on
+                clinician review.
+              </p>
             </div>
           </div>
           <div className="shell product-grid">
             {productCards.map((product) => (
               <article className={`product-card product-${product.tone}`} key={product.title}>
+                {product.image ? (
+                  <div className="product-card-image">
+                    <Image
+                      alt={product.imageAlt || `${product.title} treatment support`}
+                      height={getImageDimensions(product.image).height}
+                      loading="lazy"
+                      sizes="(max-width: 760px) 100vw, (max-width: 1180px) 50vw, 25vw"
+                      src={product.image}
+                      width={getImageDimensions(product.image).width}
+                    />
+                  </div>
+                ) : null}
                 <p className="mini-label">{product.note}</p>
                 <h3>{product.title}</h3>
                 <strong>{product.price}</strong>
-                <TextLink href="/login">
-                  Get started
-                </TextLink>
+                <p>{product.summary}</p>
+                <div className="mini-list">
+                  {product.highlights.map((item) => (
+                    <span key={`${product.title}-${item}`}>{item}</span>
+                  ))}
+                </div>
+                <ActionLink href="/quiz" variant="ghost">
+                  Start assessment
+                </ActionLink>
               </article>
             ))}
           </div>
@@ -61,11 +92,16 @@ export default function WeightLossPage() {
           </div>
         </section>
 
-        <section className="section">
+        <section className="section" id="how-it-works">
           <div className="shell split">
             <div className="split-copy">
-              <p className="eyebrow">What to expect</p>
-              <h2>The flow is simple because the site stages the journey in three moves.</h2>
+              <p className="eyebrow">How it works</p>
+              <h2>Understand the full path from assessment to refill support.</h2>
+              <p className="lede-alt">
+                Revya is designed to answer the main objections early: how qualification works,
+                who reviews the intake, what happens after approval, and where support lives once
+                treatment is active.
+              </p>
             </div>
             <div className="timeline">
               {processSteps.map((step, index) => (
@@ -81,37 +117,59 @@ export default function WeightLossPage() {
           </div>
         </section>
 
-        <section className="section section-soft">
-          <div className="shell split split-reverse">
+        <section className="section section-soft" id="eligibility">
+          <div className="shell split assessment-showcase assessment-showcase-tight">
             <div className="split-copy">
-              <p className="eyebrow">24/7 support</p>
-              <h2>Patients are pushed into the portal after checkout, not left in email threads.</h2>
+              <p className="eyebrow">Assessment and clinician review</p>
+              <h2>The assessment qualifies the next step. A clinician still makes the treatment call.</h2>
               <p className="lede-alt">
-                Public onboarding documents say patients can make appointments in the portal,
-                submit refill forms there, upload transfer documents, and manage membership and
-                labs without leaving the account area.
+                Patients answer a short intake, review their answers, and see a preliminary route.
+                If they move forward, a licensed clinician reviews the intake before recommending
+                a specific program or prescription path.
               </p>
-              <div className="portal-mini-grid">
-                <article>
-                  <strong>Refill form</strong>
-                  <p>Email and text reminders direct patients back into the portal.</p>
-                </article>
-                <article>
-                  <strong>Daily appointments</strong>
-                  <p>Appointments with providers are presented as a built-in part of the membership.</p>
-                </article>
-                <article>
-                  <strong>Unlimited support</strong>
-                  <p>The public site repeatedly advertises access to providers and nursing support.</p>
-                </article>
+              <div className="cta-actions">
+                <ActionLink href="/quiz">Start assessment</ActionLink>
+                <ActionLink href="/welcome" variant="ghost">
+                  See what happens after approval
+                </ActionLink>
               </div>
             </div>
             <div className="split-media">
-              <ArtPanel
-                detail="Refills, labs, billing, support, and appointments in one account."
-                kind="portal"
-                label="Portal preview"
+              <QuizEntryPanel
+                copy="The intake is designed to prepare patients for clinician review, not replace it."
+                ctaLabel="Start assessment"
+                secondaryLabel="See what happens after approval"
+                secondaryHref="/welcome"
+                title="A short intake that leads into a real medical review."
               />
+            </div>
+          </div>
+        </section>
+
+        <section className="section trust-section">
+          <div className="shell trust-panel">
+            <div className="trust-lead">
+              <div>
+                <p className="eyebrow">Trust and oversight</p>
+                <h2>Revya keeps the clinical parts visible instead of hiding them behind checkout.</h2>
+              </div>
+              <div className="trust-visual">
+                <ArtPanel
+                  detail="Assessment, clinician review, discreet fulfillment, and portal support are part of one care model."
+                  kind="portal"
+                  label="Clinician-led workflow"
+                  imageAlt="Clinician and patient discussing treatment options in a consultation setting"
+                  imageSrc="/images/trust-signals.jpg"
+                />
+              </div>
+            </div>
+            <div className="feature-grid">
+              {trustFeatures.map((item) => (
+                <article className="feature-card" key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -120,11 +178,53 @@ export default function WeightLossPage() {
           <div className="shell">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">Testimonials</p>
-                <h2>Social proof is heavy and repeated throughout the funnel.</h2>
+                <p className="eyebrow">Who supports care</p>
+                <h2>Clinicians, coordinators, and pharmacy partners each have a visible role.</h2>
               </div>
             </div>
-            <TestimonialGrid testimonials={testimonials.slice(0, 4)} />
+            <DoctorGrid doctors={doctors} />
+          </div>
+        </section>
+
+        <section className="section" id="portal-support">
+          <div className="shell split split-reverse">
+            <div className="split-copy">
+              <p className="eyebrow">Portal and support</p>
+              <h2>Ongoing care should feel organized after the first delivery.</h2>
+              <p className="lede-alt">
+                The Revya portal is where patients can manage refill check-ins, appointments,
+                messages, documents, billing details, and shipment status once treatment is active.
+              </p>
+              <div className="portal-mini-grid">
+                <article>
+                  <strong>Refill reviews</strong>
+                  <p>Submit a quick check-in before the next shipment is approved.</p>
+                </article>
+                <article>
+                  <strong>Follow-up visits</strong>
+                  <p>Book time with a clinician to review dosing, tolerability, or progress.</p>
+                </article>
+                <article>
+                  <strong>Care support</strong>
+                  <p>Keep routine questions, documents, and billing details in one secure place.</p>
+                </article>
+              </div>
+              <div className="cta-actions">
+                <ActionLink href="/login">Open patient login</ActionLink>
+                <ActionLink href="/dashboard" variant="ghost">
+                  Preview patient portal
+                </ActionLink>
+              </div>
+            </div>
+            <div className="split-media">
+              <ArtPanel
+                detail="Refills, labs, billing, appointments, and care messages stay connected inside one account."
+                kind="portal"
+                label="Portal support"
+                imageAlt="Patient and clinician reviewing a personalized treatment plan on a tablet"
+                imageSrc="/images/personalized-plan.jpg"
+              />
+            </div>
           </div>
         </section>
 
@@ -132,40 +232,31 @@ export default function WeightLossPage() {
           <div className="shell">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">FAQ</p>
-                <h2>Most objections are handled with direct answers and pricing clarity.</h2>
+                <p className="eyebrow">Frequently asked questions</p>
+                <h2>Straight answers on pricing, review, prescribing, and follow-up.</h2>
               </div>
             </div>
             <FaqList items={faqs} />
           </div>
         </section>
 
-        <section className="section">
-          <div className="shell">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Our doctors</p>
-                <h2>Provider presence anchors trust and keeps the flow medical, not cosmetic.</h2>
-              </div>
-            </div>
-            <DoctorGrid doctors={doctors} />
-          </div>
-        </section>
-
         <section className="section final-cta">
           <div className="shell cta-panel">
             <div>
-              <p className="eyebrow">What happens next</p>
-              <h2>Assessment, provider review, portal, refill.</h2>
+              <p className="eyebrow">Next step</p>
+              <h2>Take the assessment and see which Revya path may fit.</h2>
               <p className="lede-alt">
-                The real authenticated experience is private, so this clone recreates the account
-                surface with mocked data based on the public help and onboarding documentation.
+                Start with the intake, review your route, and move into clinician review if you
+                want to continue.
+              </p>
+              <p className="guarantee-line">
+                Love your weight loss in 30 days or your money back.
               </p>
             </div>
             <div className="cta-actions">
-              <ActionLink href="/login">Continue to Login</ActionLink>
-              <ActionLink href="/welcome" variant="ghost">
-                Read Getting Started Guide
+              <ActionLink href="/quiz">Start assessment</ActionLink>
+              <ActionLink href="/login" variant="ghost">
+                Open patient login
               </ActionLink>
             </div>
           </div>

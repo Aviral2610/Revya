@@ -3670,92 +3670,6 @@ svg {
     border-radius: 1.6rem;
   }
 
-  .page-generic {
-  padding: 5rem 0 5rem;
-}
-
-.page-generic-shell {
-  max-width: 48rem;
-}
-
-.page-generic-header {
-  margin-bottom: 2.5rem;
-}
-
-.page-generic-header h1 {
-  margin-top: 0.5rem;
-}
-
-.page-generic-date {
-  color: var(--ink-soft);
-  font-size: 0.85rem;
-  margin-top: 0.4rem;
-}
-
-.page-generic-body.prose h2 {
-  font-size: 1.4rem;
-  margin-top: 2.5rem;
-  margin-bottom: 0.7rem;
-  color: var(--ink);
-}
-
-.page-generic-body.prose p {
-  margin-bottom: 1rem;
-  color: var(--ink-soft);
-  font-size: 0.97rem;
-  line-height: 1.65;
-}
-
-.pricing-guarantee {
-  margin: 4rem 0;
-  padding: 2rem;
-  background: rgba(92, 116, 96, 0.06);
-  border: 1px solid rgba(92, 116, 96, 0.15);
-  border-radius: var(--radius-xl);
-  text-align: center;
-}
-
-.pricing-guarantee h3 {
-  font-size: 1.4rem;
-  color: var(--ink);
-  margin-bottom: 0.6rem;
-}
-
-.pricing-guarantee p {
-  color: var(--ink-soft);
-  font-size: 0.92rem;
-  max-width: 36rem;
-  margin: 0 auto;
-}
-
-.pricing-faq {
-  margin-top: 3rem;
-}
-
-.pricing-faq h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.footer-legit {
-  margin-top: 0.8rem;
-}
-
-.footer-legit a {
-  color: var(--ink-soft);
-  font-size: 0.78rem;
-  text-decoration: underline;
-}
-
-.footer-legit a:hover {
-  color: var(--ink);
-}
-
-.stat-chip .trust-badge {
-  color: var(--sage);
-  font-weight: 700;
-}
-
   .quiz-stage-list {
     grid-template-columns: 1fr;
   }
@@ -3887,4 +3801,612 @@ svg {
   flex: 1;
   height: 1px;
   background: rgba(23, 32, 26, 0.1);
+}
+
+.section-heading h1,
+.section-heading h2,
+.page-generic-header h1,
+.hero-copy h1,
+.split-copy h2,
+.welcome-card h2,
+.portal-topbar h1,
+.cta-panel h2,
+.not-found h1,
+.pricing-guarantee h3,
+.pricing-faq h2,
+.login-card-header h2,
+.login-copy h1,
+.quiz-premium-aside h1,
+.quiz-step-heading h2,
+.quiz-result-card h2,
+.quiz-entry-head h3 {
+  text-wrap: balance;
+}
+
+.section-heading h1,
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.section-heading p,
+.page-generic-header p {
+  margin: 0;
+}
+
+.hero-copy,
+.split-copy,
+.portal-main,
+.quiz-premium-shell,
+.quiz-premium-aside,
+.page-generic-shell,
+.cta-panel > div,
+.section-heading > div {
+  min-width: 0;
+}
+
+.product-card,
+.feature-card,
+.doctor-card,
+.testimonial-card,
+.portal-card,
+.welcome-card,
+.login-card,
+.login-support-card,
+.cta-panel,
+.trust-panel {
+  min-width: 0;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+}
+
+.product-card-body {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.product-card-note,
+.product-card-price,
+.product-card-summary {
+  margin: 0;
+}
+
+.product-card-note {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.product-card-price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.product-card-summary {
+  color: var(--ink-soft);
+}
+
+.product-card-highlights {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-card-highlights li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.product-card-highlights li::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sage), var(--gold));
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.faq-grid .faq-item {
+  padding: 1.3rem;
+}
+
+.faq-grid .faq-item h4,
+.faq-grid .faq-item p {
+  margin: 0;
+}
+
+.faq-grid .faq-item h4 {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.faq-grid .faq-item p {
+  margin-top: 0.6rem;
+  color: var(--ink-soft);
+}
+
+.page-generic {
+  padding: 6.5rem 0 5rem;
+}
+
+.page-generic-shell {
+  max-width: 48rem;
+}
+
+.page-generic-header {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 2.5rem;
+}
+
+.page-generic-header h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.page-generic-date {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.page-generic-body.prose h2 {
+  margin: 2.5rem 0 0.7rem;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+.page-generic-body.prose p {
+  margin-bottom: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.65;
+}
+
+.page-generic-body.prose a,
+.login-security-note a,
+.login-support-links .text-link,
+.footer-links a,
+.footer-links span,
+.footer-legit a {
+  overflow-wrap: anywhere;
+}
+
+.page-generic-body.prose a {
+  color: var(--sage);
+  text-decoration: underline;
+}
+
+.pricing-guarantee {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: rgba(92, 116, 96, 0.06);
+  border: 1px solid rgba(92, 116, 96, 0.15);
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.pricing-guarantee h3 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--ink);
+}
+
+.pricing-guarantee p {
+  max-width: 36rem;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.pricing-faq {
+  margin-top: 3rem;
+}
+
+.pricing-faq h2 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.85rem, 4vw, 2.4rem);
+}
+
+.footer-grid {
+  grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
+  align-items: start;
+}
+
+.footer-links {
+  display: grid;
+  justify-items: start;
+  gap: 0.55rem;
+}
+
+.footer-copy {
+  overflow-wrap: anywhere;
+}
+
+.footer-legit {
+  margin-top: 0.8rem;
+}
+
+.footer-legit a {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  text-decoration: underline;
+}
+
+.footer-legit a:hover {
+  color: var(--ink);
+}
+
+.stat-chip .trust-badge {
+  color: var(--sage);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .header-inner {
+    gap: 0.9rem;
+    padding: 0.9rem 0 1rem;
+  }
+
+  .header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.55rem;
+    overflow-x: auto;
+    margin: 0 -0.1rem;
+    padding: 0 0.1rem 0.2rem;
+    scrollbar-width: none;
+  }
+
+  .header-nav::-webkit-scrollbar,
+  .portal-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-nav a {
+    white-space: nowrap;
+    padding: 0.72rem 0.95rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 250, 243, 0.68);
+    border: 1px solid rgba(23, 32, 26, 0.08);
+  }
+
+  .site-header-dark .header-nav a {
+    background: rgba(255, 250, 243, 0.08);
+    border-color: rgba(255, 250, 243, 0.12);
+  }
+
+  .header-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero,
+  .section {
+    padding: 2.75rem 0;
+  }
+
+  .home-hero {
+    padding-top: 3.75rem;
+  }
+
+  .glp-hero {
+    padding-top: 3rem;
+  }
+
+  .hero-grid,
+  .split,
+  .welcome-layout,
+  .portal-shell {
+    gap: 1.5rem;
+  }
+
+  .hero-actions-row,
+  .cta-actions,
+  .quiz-premium-links,
+  .quiz-entry-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .hero-pill-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .hero-pill-row .button.chip,
+  .quiz-premium-links > *,
+  .quiz-entry-actions > * {
+    width: 100%;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .stat-chip {
+    width: 100%;
+    min-height: 3.2rem;
+    justify-content: flex-start;
+  }
+
+  .art-card {
+    min-height: 20rem;
+    padding: 1.25rem;
+  }
+
+  .art-copy {
+    max-width: 100%;
+  }
+
+  .floating-card,
+  .mock-banner,
+  .portal-mini-grid article {
+    padding: 1rem;
+  }
+
+  .section-heading {
+    gap: 0.75rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .timeline-step {
+    gap: 0.8rem;
+    padding: 1rem 0;
+  }
+
+  .timeline-step span {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .portal-sidebar {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .portal-nav {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+  }
+
+  .portal-nav-link {
+    flex: 0 0 auto;
+    min-height: 2.85rem;
+    white-space: nowrap;
+  }
+
+  .portal-main {
+    padding: 1rem;
+  }
+
+  .portal-topbar {
+    margin-bottom: 1.15rem;
+  }
+
+  .message-thread {
+    gap: 0.85rem;
+  }
+
+  .message,
+  .message-patient {
+    max-width: 100%;
+  }
+
+  .message-patient {
+    justify-self: stretch;
+  }
+
+  .footer-grid {
+    gap: 1rem;
+    padding: 1.2rem;
+  }
+
+  .page-generic {
+    padding: 5.75rem 0 4.25rem;
+  }
+
+  .pricing-guarantee {
+    margin: 3rem 0;
+    padding: 1.5rem;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-premium-page {
+    padding: 3rem 0 4rem;
+  }
+
+  .quiz-premium-aside {
+    gap: 1.15rem;
+    padding: 1.3rem;
+  }
+
+  .quiz-premium-highlights article,
+  .quiz-premium-journey article {
+    padding: 0.9rem;
+  }
+
+  .quiz-progress-head span,
+  .quiz-question-count {
+    width: 100%;
+  }
+
+  .quiz-step-card,
+  .quiz-flow-surface,
+  .quiz-progress-card,
+  .quiz-entry-panel {
+    padding: 1rem;
+  }
+
+  .quiz-review-row {
+    flex-direction: column;
+  }
+
+  .quiz-inline-button {
+    align-self: flex-start;
+  }
+
+  .quiz-result-links {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .quiz-result-links .button {
+    width: 100%;
+  }
+
+  .login-panel {
+    padding: 1rem;
+  }
+
+  .login-visual-body {
+    gap: 1rem;
+  }
+
+  .login-visual-pills span {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .login-support-links {
+    display: grid;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .shell {
+    width: min(100%, calc(100% - 1rem));
+  }
+
+  .brand {
+    gap: 0.65rem;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .header-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-pill-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy h1,
+  .split-copy h2,
+  .section-heading h1,
+  .section-heading h2,
+  .pricing-guarantee h3,
+  .pricing-faq h2 {
+    font-size: clamp(1.9rem, 9vw, 2.45rem);
+  }
+
+  .lede,
+  .lede-alt,
+  .hero-copy p,
+  .split-copy p,
+  .cta-panel p,
+  .portal-card p,
+  .welcome-card p,
+  .login-copy p {
+    font-size: 0.98rem;
+  }
+
+  .art-card {
+    min-height: 18rem;
+  }
+
+  .floating-card {
+    padding: 0.95rem;
+  }
+
+  .portal-sidebar,
+  .portal-main {
+    padding: 0.9rem;
+  }
+
+  .task-item {
+    flex-direction: column;
+  }
+
+  .task-item span {
+    white-space: normal;
+  }
+
+  .progress-summary {
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .message {
+    padding: 0.9rem;
+  }
+
+  .page-generic {
+    padding: 5rem 0 4rem;
+  }
+
+  .page-generic-body.prose h2 {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+  }
+
+  .pricing-guarantee {
+    padding: 1.25rem;
+  }
+
+  .estimator-card {
+    padding: 1.35rem;
+  }
+
+  .estimator-stat {
+    font-size: 2.4rem;
+  }
+
+  .press-row {
+    gap: 0.35rem 0.6rem;
+  }
+
+  .toast {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
 }

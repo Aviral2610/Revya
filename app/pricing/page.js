@@ -1,5 +1,5 @@
-import { SiteHeader, SiteFooter } from "@/components/site-sections";
-import { productCards } from "@/lib/site-data";
+import { ActionLink, SiteFooter, SiteHeader } from "@/components/site-sections";
+import { featuredLogos, pricingGuaranteeHighlights, productCards } from "@/lib/site-data";
 import Image from "next/image";
 import { getImageDimensions } from "@/lib/image-assets";
 import { getPageMetadata } from "@/lib/seo";
@@ -12,13 +12,29 @@ export default function PricingPage() {
       <SiteHeader />
       <main className="page-generic">
         <div className="shell">
-          <div className="section-heading">
-            <p className="eyebrow">Programs and pricing</p>
-            <h1>Explore your care options.</h1>
-            <p className="lede-alt">
-              All programs include clinician review, secure portal access, and ongoing follow-up
-              support. Final program fit is determined after your assessment and clinician review.
-            </p>
+          <div className="section-heading pricing-page-header">
+            <div>
+              <p className="eyebrow">Programs and pricing</p>
+              <h1>Explore your care options.</h1>
+              <p className="lede-alt">
+                All programs include clinician review, secure portal access, and ongoing follow-up
+                support. Final program fit is determined after your assessment and clinician review.
+              </p>
+            </div>
+            <div className="pricing-actions">
+              <ActionLink href="/quiz">Start assessment</ActionLink>
+              <ActionLink href="/dashboard" variant="ghost">
+                Preview patient portal
+              </ActionLink>
+            </div>
+          </div>
+
+          <div className="pricing-assurance-row">
+            {featuredLogos.slice(0, 4).map((item) => (
+              <span className="pricing-assurance-pill" key={item}>
+                {item}
+              </span>
+            ))}
           </div>
 
           <div className="product-grid">
@@ -51,17 +67,31 @@ export default function PricingPage() {
                     ))}
                   </ul>
                 </div>
+                <div className="product-card-footer">
+                  <ActionLink href="/quiz" variant="ghost">
+                    Start assessment
+                  </ActionLink>
+                </div>
               </article>
             ))}
           </div>
 
           <div className="pricing-guarantee">
-            <h3>Love your weight loss in 30 days or your money back.</h3>
-            <p>
-              Revya is confident in its program. If you are not satisfied within the first 30
-              days of receiving your first order, contact us for a full refund of your program
-              fees. Medication costs already dispensed are not included in the refund.
-            </p>
+            <div className="pricing-guarantee-grid">
+              <div className="pricing-guarantee-copy">
+                <p className="mini-label">30-day program-fee guarantee</p>
+                <h3>Love your weight loss in 30 days or your money back.</h3>
+                <p>
+                  If you are not satisfied within the first 30 days of receiving your first order,
+                  contact Revya support for a full refund of your program fees.
+                </p>
+              </div>
+              <ul className="detail-list tight pricing-guarantee-list">
+                {pricingGuaranteeHighlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="pricing-faq">

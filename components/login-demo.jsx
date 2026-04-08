@@ -213,6 +213,12 @@ export function LoginDemo({
                     </article>
                   </div>
 
+                  <div className="login-assurance-row" aria-label="Sign-in assurances">
+                    <span>Two-step access</span>
+                    <span>{googleAuthEnabled ? "Google session available" : "Preview code flow active"}</span>
+                    <span>No password stored in the demo flow</span>
+                  </div>
+
                   {loginStep === "identifier" ? (
                     <form className="stack-form" onSubmit={handleIdentifierSubmit}>
                       <label className="login-field">

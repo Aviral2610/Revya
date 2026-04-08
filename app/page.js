@@ -1,8 +1,11 @@
 import {
   doctors,
+  featuredLogos,
+  homeHeroProofs,
   homeHeroTabs,
   homeHighlights,
   processSteps,
+  pricingGuaranteeHighlights,
   productCards,
   testimonials,
   trustFeatures
@@ -38,6 +41,14 @@ export default function HomePage() {
                 follow-through into one connected path so patients know what happens before they
                 start and after they are approved.
               </p>
+              <div className="hero-proof-row">
+                {homeHeroProofs.map((item) => (
+                  <article className="hero-proof" key={item.title}>
+                    <strong>{item.title}</strong>
+                    <p>{item.copy}</p>
+                  </article>
+                ))}
+              </div>
               <div className="hero-actions-row">
                 <ActionLink href="/quiz">Start assessment</ActionLink>
                 <ActionLink href="/weight-loss" variant="ghost">
@@ -104,14 +115,21 @@ export default function HomePage() {
           <div className="shell product-grid">
             {productCards.map((product) => (
               <article className={`product-card product-${product.tone}`} key={product.title}>
-                <p className="mini-label">{product.note}</p>
-                <h3>{product.title}</h3>
-                <strong>{product.price}</strong>
-                <p>{product.summary}</p>
-                <div className="mini-list">
-                  {product.highlights.map((item) => (
-                    <span key={`${product.title}-${item}`}>{item}</span>
-                  ))}
+                <div className="product-card-body">
+                  <p className="product-card-note">{product.note}</p>
+                  <h3>{product.title}</h3>
+                  <p className="product-card-price">{product.price}</p>
+                  <p className="product-card-summary">{product.summary}</p>
+                  <ul className="product-card-highlights">
+                    {product.highlights.map((item) => (
+                      <li key={`${product.title}-${item}`}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="product-card-footer">
+                  <ActionLink href="/quiz" variant="ghost">
+                    Start assessment
+                  </ActionLink>
                 </div>
               </article>
             ))}
@@ -197,17 +215,15 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section press-section">
-          <div className="shell">
-            <p className="press-label">As featured in</p>
-            <div className="press-row">
-              <span>HealthTech Weekly</span>
-              <span className="press-dot" />
-              <span>Digital Health Journal</span>
-              <span className="press-dot" />
-              <span>Telemedicine Today</span>
-              <span className="press-dot" />
-              <span>Telehealth Observer</span>
+        <section className="section credibility-section">
+          <div className="shell credibility-strip">
+            <p className="press-label">What patients want clarified up front</p>
+            <div className="credibility-row">
+              {featuredLogos.map((item) => (
+                <span className="credibility-pill" key={item}>
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </section>
@@ -269,10 +285,29 @@ export default function HomePage() {
 
         <section className="section testimonial-section">
           <div className="shell">
-            <div className="section-heading">
+            <div className="testimonial-showcase">
               <div>
                 <p className="eyebrow">Member experience</p>
                 <h2>Patients should understand the program before they feel pressure to buy it.</h2>
+                <p className="lede-alt">
+                  The strongest feedback theme is clarity: members know what the program costs,
+                  how review works, and what support looks like after they start.
+                </p>
+              </div>
+              <aside className="testimonial-proof-card">
+                <p className="mini-label">Conversion signal</p>
+                <strong>18,000+ patients have trusted Revya to start with clarity instead of checkout pressure.</strong>
+                <div className="mini-list">
+                  <span>Pricing before commitment</span>
+                  <span>Clinician review stays visible</span>
+                  <span>Portal support continues after approval</span>
+                </div>
+              </aside>
+            </div>
+            <div className="section-heading compact">
+              <div>
+                <p className="eyebrow">Patient notes</p>
+                <h2>Why members say the experience feels easier to continue.</h2>
               </div>
             </div>
             <TestimonialGrid testimonials={testimonials.slice(0, 4)} />
@@ -282,17 +317,28 @@ export default function HomePage() {
         <section className="section estimator-section">
           <div className="shell">
             <div className="estimator-card">
-              <p className="eyebrow">Weight-loss outcomes</p>
-              <h3>See how much you could lose</h3>
+              <p className="eyebrow">After approval</p>
+              <h3>One portal keeps care from fragmenting after the first delivery.</h3>
               <p className="lede-alt">
-                Patients in Revya programs have reported an average of 1–2 lbs of weight loss per
-                week, combined with clinician-guided lifestyle support.
+                Revya keeps refill reviews, follow-up visits, secure messages, documents, and
+                billing connected so the next step stays obvious between visits.
               </p>
-              <p className="estimator-stat">14%</p>
-              <p className="estimator-label">average body weight loss over 4 months*</p>
+              <div className="estimator-mini-grid">
+                <article>
+                  <strong>1 portal</strong>
+                  <span>for refills, visits, messages, billing, and documents</span>
+                </article>
+                <article>
+                  <strong>Refill check-ins</strong>
+                  <span>stay attached to clinician review instead of scattered support threads</span>
+                </article>
+                <article>
+                  <strong>Follow-up ready</strong>
+                  <span>so dose questions and side effects can be addressed without losing momentum</span>
+                </article>
+              </div>
               <p className="estimator-disclaimer">
-                *Based on patient-reported data from Revya program participants on GLP-1 treatment
-                plans with clinician oversight. Individual results vary.
+                Programs, prescribing, and dose changes still depend on individual clinician review.
               </p>
             </div>
           </div>
@@ -307,15 +353,23 @@ export default function HomePage() {
                 Begin with a short intake, review your route, and move into clinician review if
                 you decide to continue.
               </p>
-              <p className="guarantee-line">
-                Love your weight loss in 30 days or your money back.
-              </p>
             </div>
-            <div className="cta-actions">
-              <ActionLink href="/quiz">Start assessment</ActionLink>
-              <ActionLink href="/weight-loss" variant="ghost">
-                See programs and pricing
-              </ActionLink>
+            <div className="cta-side">
+              <div className="guarantee-card">
+                <p className="mini-label">30-day program-fee guarantee</p>
+                <strong>Love your weight loss in 30 days or your money back.</strong>
+                <ul className="detail-list tight cta-proof-list">
+                  {pricingGuaranteeHighlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="cta-actions">
+                <ActionLink href="/quiz">Start assessment</ActionLink>
+                <ActionLink href="/weight-loss" variant="ghost">
+                  See programs and pricing
+                </ActionLink>
+              </div>
             </div>
           </div>
         </section>

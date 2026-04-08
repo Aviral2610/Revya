@@ -152,49 +152,64 @@ export function SiteHeader({ mode = "default" }) {
 }
 
 export function SiteFooter() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="site-footer">
-      <div className="shell footer-grid">
-        <div>
-          <BrandMark />
-          <p className="footer-copy">
-            Revya brings assessment, clinician review, discreet delivery, refill check-ins, and
-            portal-based follow-up together in one connected weight-loss care experience.
-          </p>
-        </div>
-        <div>
-          <p className="mini-label">Explore</p>
-          <nav aria-label="Footer routes" className="footer-links">
-            <Link href="/">Revya home</Link>
-            <Link href="/quiz">Start assessment</Link>
-            <Link href="/weight-loss">Programs and pricing</Link>
-            <Link href="/welcome">Getting started guide</Link>
-            <Link href="/login">Patient login</Link>
-            <Link href="/dashboard">Portal preview</Link>
-          </nav>
-        </div>
-        <div>
-          <p className="mini-label">Support</p>
-          <div className="footer-links">
-            <a href={`mailto:${brand.supportEmail}`}>{brand.supportEmail}</a>
-            <span>{brand.supportPhone}</span>
-            <span>{brand.address}</span>
+      <div className="shell footer-shell">
+        <div className="footer-grid">
+          <div>
+            <BrandMark />
+            <p className="footer-copy">
+              Revya brings assessment, clinician review, discreet delivery, refill check-ins, and
+              portal-based follow-up together in one connected weight-loss care experience.
+            </p>
+          </div>
+          <div>
+            <p className="mini-label">Explore</p>
+            <nav aria-label="Footer routes" className="footer-links">
+              <Link href="/">Revya home</Link>
+              <Link href="/quiz">Start assessment</Link>
+              <Link href="/weight-loss">Programs and pricing</Link>
+              <Link href="/welcome">Getting started guide</Link>
+              <Link href="/login">Patient login</Link>
+              <Link href="/dashboard">Portal preview</Link>
+            </nav>
+          </div>
+          <div>
+            <p className="mini-label">Support</p>
+            <div className="footer-links">
+              <a href={`mailto:${brand.supportEmail}`}>{brand.supportEmail}</a>
+              <span>{brand.supportPhone}</span>
+              <span>{brand.address}</span>
+            </div>
+          </div>
+          <div>
+            <p className="mini-label">Legal</p>
+            <nav aria-label="Footer legal" className="footer-links">
+              <Link href="/privacy-policy">Privacy Policy</Link>
+              <Link href="/terms-and-conditions">Terms & Conditions</Link>
+            </nav>
+            <div className="footer-legit">
+              <a
+                href="https://www.legitscript.com/websites/?checker_keywords=revya.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Verify Approval for revya.com
+              </a>
+            </div>
           </div>
         </div>
-        <div>
-          <p className="mini-label">Legal</p>
-          <nav aria-label="Footer legal" className="footer-links">
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms-and-conditions">Terms & Conditions</Link>
-          </nav>
-          <div className="footer-legit">
-            <a
-              href="https://www.legitscript.com/websites/?checker_keywords=revya.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Verify Approval for revya.com
-            </a>
+
+        <div className="footer-bottom">
+          <p className="footer-fineprint">
+            Demo-oriented patient experience preview. Treatment recommendations, prescribing, and
+            dose changes remain clinician-led after individual review.
+          </p>
+          <div className="footer-meta">
+            <span>© {currentYear} {brand.name}</span>
+            <span>Secure portal preview</span>
           </div>
         </div>
       </div>
@@ -224,13 +239,24 @@ export function DoctorGrid({ doctors }) {
 export function TestimonialGrid({ testimonials }) {
   return (
     <div className="testimonial-grid">
-      {testimonials.map((testimonial) => (
+      {testimonials.map((testimonial, index) => (
         <article
-          className={`testimonial-card testimonial-${testimonial.accent}`}
+          className={classNames(
+            "testimonial-card",
+            `testimonial-${testimonial.accent}`,
+            index === 0 && "testimonial-featured"
+          )}
           key={`${testimonial.name}-${testimonial.quote}`}
         >
+          <div className="testimonial-topline">
+            <span className="mini-label">Member story</span>
+            <span className="testimonial-outcome">{testimonial.outcome}</span>
+          </div>
           <p>"{testimonial.quote}"</p>
-          <strong>{testimonial.name}</strong>
+          <div className="testimonial-meta">
+            <strong>{testimonial.name}</strong>
+            {testimonial.focus ? <span>{testimonial.focus}</span> : null}
+          </div>
         </article>
       ))}
     </div>

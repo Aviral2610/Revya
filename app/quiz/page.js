@@ -24,6 +24,11 @@ export default function QuizPage() {
                 If you continue, a licensed clinician reviews the full intake before recommending
                 care.
               </p>
+              <div className="quiz-premium-proof">
+                <span>About 3 minutes</span>
+                <span>Saved on this device</span>
+                <span>Clinician review required before treatment</span>
+              </div>
 
               <div className="quiz-premium-highlights">
                 <article>

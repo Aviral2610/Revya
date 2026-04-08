@@ -71,10 +71,18 @@ function OverviewPanel({ appointmentBooked, patient, targetWeight }) {
   return (
     <section className="dashboard-grid">
       <article className="portal-card portal-hero">
-        <div>
-          <p className="eyebrow">Current program</p>
-          <h2>{patient.medication}</h2>
-          <p>{patient.dosage}</p>
+        <div className="portal-hero-top">
+          <div>
+            <p className="eyebrow">Current program</p>
+            <h2>{patient.medication}</h2>
+            <p>{patient.dosage}</p>
+          </div>
+          <div className="portal-hero-status">
+            <span className={`status-badge ${patient.refillEligible ? "status-complete" : "status-pending"}`}>
+              {patient.refillEligible ? "On track" : "Review needed"}
+            </span>
+            <span>Next review {typeof patient.nextRefillDate === "string" ? patient.nextRefillDate.split(",")[0] : "TBD"}</span>
+          </div>
         </div>
         <div className="metric-grid">
           {getDashboardMetrics(patient).map((metric) => (
@@ -358,6 +366,19 @@ export function DashboardPortal({
       ? "This scaffolded portal stays available for demos. Use Google sign-in to load the Supabase-backed member profile."
       : "Google auth env vars are still missing, so this dashboard stays in preview mode with scaffolded portal data."
     : "This session is tied to the signed-in Google member and resolves the portal profile through Supabase on the server.";
+  const dashboardSummary = [
+    { label: "Mode", value: previewMode ? "Preview" : "Live account" },
+    {
+      label: "Next review",
+      value:
+        typeof patient.nextRefillDate === "string" ? patient.nextRefillDate.split(",")[0] : "TBD"
+    },
+    {
+      label: "Current dose",
+      value: patient.dosage.replace(/^Current dose:\s*/i, "")
+    },
+    { label: "Support", value: "Messages and visits ready" }
+  ];
 
   function handleBookSlot(slot) {
     setAppointmentBooked(slot);
@@ -494,6 +515,11 @@ export function DashboardPortal({
             ))}
           </nav>
 
+          <div className="portal-sidebar-note">
+            Secure messages, refill reviews, billing details, and follow-ups stay connected in one
+            account.
+          </div>
+
           <button className="button ghost-light full-width" onClick={handleSidebarAction} type="button">
             {sessionUser ? "Sign out" : "Back to secure sign-in"}
           </button>
@@ -523,6 +549,14 @@ export function DashboardPortal({
               </button>
             </div>
           </header>
+          <div className="portal-summary-bar">
+            {dashboardSummary.map((item) => (
+              <article className="portal-summary-chip" key={item.label}>
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+              </article>
+            ))}
+          </div>
           {renderPanel()}
         </section>
       </main>

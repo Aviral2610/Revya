@@ -841,6 +841,7 @@ svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
 .product-card .mini-list {
@@ -5048,6 +5049,25 @@ body {
 
 .quiz-step-card {
   background: linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(249, 242, 233, 0.96));
+}
+
+.quiz-start-card {
+  background:
+    radial-gradient(circle at top right, rgba(240, 199, 137, 0.12), transparent 40%),
+    linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(249, 242, 233, 0.96));
+  color: var(--ink);
+}
+
+.quiz-start-card .step-heading p,
+.quiz-start-card .step-heading span,
+.quiz-start-card .quiz-start-grid article p,
+.quiz-start-card .quiz-trust-strip span {
+  color: var(--ink-soft);
+}
+
+.quiz-start-card .quiz-start-grid article {
+  border-color: rgba(23, 32, 26, 0.08);
+  background: rgba(255, 250, 243, 0.82);
 }
 
 .quiz-choice-card {

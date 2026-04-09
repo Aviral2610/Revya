@@ -35,7 +35,7 @@ export default function WelcomePage() {
                 label="Inside the portal"
                 imageAlt="Patient dashboard mockup with refills, appointments, and treatment progress"
                 priority
-                imageSrc="/images/patient-dashboard-mockup.svg"
+                imageSrc="/images/revya-portal-support.jpg"
               />
             </div>
           </div>

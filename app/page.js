@@ -265,7 +265,7 @@ export default function HomePage() {
                 kind="portal"
                 label="Ongoing support"
                 imageAlt="Patient dashboard mockup with refill tasks and progress tracking"
-                imageSrc="/images/patient-dashboard-mockup.svg"
+                imageSrc="/images/revya-portal-support.jpg"
               />
             </div>
           </div>

@@ -5288,6 +5288,59 @@ body {
   .footer-meta {
     justify-content: flex-start;
   }
+
+  .site-footer {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .footer-shell {
+    padding: 1.25rem;
+    border-radius: 1.75rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1rem;
+  }
+
+  .footer-grid > nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.95rem;
+    padding: 0.2rem 0;
+    color: var(--ink-soft);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+
+  .footer-fineprint {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .footer-meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .footer-legit {
+    margin-top: 0.5rem;
+  }
 }
 
 @media (max-width: 560px) {

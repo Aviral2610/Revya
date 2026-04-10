@@ -19,8 +19,8 @@ create table if not exists public.patient_profiles (
   next_appointment text not null default 'Apr 10, 2026 at 11:30 AM ET',
   labs_status text not null default 'Upload updated labs before dose review',
   billing_amount text not null default '$299 every 28 days',
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
+  created_at timestamptz not null default timezone('utc', now()),
+  updated_at timestamptz not null default timezone('utc', now())
 );
 
 alter table public.patient_profiles add column if not exists auth_user_id text;

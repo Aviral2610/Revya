@@ -6,6 +6,7 @@ import { buildPageSchema, getPageMetadata } from "@/lib/seo";
 import { redirect } from "next/navigation";
 
 export const metadata = getPageMetadata("dashboard");
+export const dynamic = "force-dynamic";
 
 export default async function DashboardPage({ searchParams }) {
   const resolvedSearchParams = await searchParams;

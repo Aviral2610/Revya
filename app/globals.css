@@ -5384,7 +5384,9 @@ body {
 }
 
 .revya-hero-copy h1 {
-  max-width: 10ch;
+  max-width: 16ch;
+  font-size: clamp(3.1rem, 6vw, 5.6rem);
+  line-height: 0.96;
 }
 
 .revya-proofline {

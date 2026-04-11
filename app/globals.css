@@ -6101,3 +6101,311 @@ body {
     padding: 1.1rem;
   }
 }
+
+/* Weight-loss page revamp */
+.weight-loss-revamp-hero {
+  padding-top: 4.5rem;
+}
+
+.weight-loss-hero-grid {
+  align-items: start;
+}
+
+.weight-loss-hero-copy h1 {
+  max-width: 11ch;
+}
+
+.weight-loss-hero-side,
+.weight-loss-biology-grid,
+.weight-loss-benefit-grid,
+.weight-loss-year-grid,
+.weight-loss-response-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.weight-loss-hero-side {
+  gap: 1.15rem;
+}
+
+.weight-loss-proof-card,
+.weight-loss-biology-card,
+.weight-loss-benefit-card,
+.weight-loss-reveal-card,
+.weight-loss-visual-card,
+.weight-loss-year-card,
+.weight-loss-year-note,
+.weight-loss-response-intro,
+.weight-loss-response-card,
+.weight-loss-clinician-card {
+  border-radius: calc(var(--radius-lg) + 2px);
+  border: 1px solid rgba(23, 32, 26, 0.08);
+  box-shadow: var(--shadow-lift);
+}
+
+.weight-loss-proof-card {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.4rem;
+  background: linear-gradient(135deg, rgba(220, 229, 216, 0.96), rgba(255, 250, 243, 0.94));
+}
+
+.weight-loss-proof-card strong,
+.weight-loss-year-note strong,
+.weight-loss-clinician-card strong {
+  display: block;
+}
+
+.weight-loss-proof-card strong {
+  margin-top: 0.2rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 0.95;
+}
+
+.weight-loss-proof-card p,
+.weight-loss-biology-card p,
+.weight-loss-benefit-card p,
+.weight-loss-year-card p,
+.weight-loss-year-note p,
+.weight-loss-response-card p,
+.weight-loss-clinician-card p,
+.weight-loss-support-note {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.weight-loss-page-estimator {
+  box-shadow: var(--shadow-premium);
+}
+
+.weight-loss-biology-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.weight-loss-benefit-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.weight-loss-biology-card,
+.weight-loss-benefit-card,
+.weight-loss-response-card {
+  padding: 1.35rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.92), rgba(248, 241, 231, 0.88));
+}
+
+.weight-loss-biology-card h3,
+.weight-loss-benefit-card h3,
+.weight-loss-year-card h3,
+.weight-loss-response-card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.16rem;
+  line-height: 1.2;
+}
+
+.weight-loss-reveal-layout,
+.weight-loss-response-layout,
+.weight-loss-faq-top {
+  display: grid;
+  gap: 1rem;
+}
+
+.weight-loss-reveal-layout {
+  grid-template-columns: minmax(18rem, 0.92fr) minmax(0, 1.08fr);
+  align-items: stretch;
+}
+
+.weight-loss-reveal-card,
+.weight-loss-response-intro {
+  padding: 1.7rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(239, 226, 212, 0.9));
+  box-shadow: var(--shadow-premium);
+}
+
+.weight-loss-reveal-card h2,
+.weight-loss-response-intro h2 {
+  margin: 0.1rem 0 0.8rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.04;
+}
+
+.weight-loss-path-list {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin: 1.2rem 0;
+}
+
+.weight-loss-path-list span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 250, 243, 0.86);
+  border: 1px solid rgba(23, 32, 26, 0.08);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.weight-loss-visual-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.84), rgba(236, 227, 214, 0.92));
+}
+
+.weight-loss-visual-image {
+  position: absolute;
+  inset: 0;
+}
+
+.weight-loss-visual-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(23, 32, 26, 0.06) 0%, rgba(23, 32, 26, 0.18) 38%, rgba(23, 32, 26, 0.78) 100%);
+}
+
+.weight-loss-visual-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.weight-loss-visual-copy {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  color: var(--white);
+}
+
+.weight-loss-visual-copy strong {
+  display: block;
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+  line-height: 1.12;
+}
+
+.weight-loss-visual-copy p {
+  margin: 0;
+  color: rgba(255, 250, 243, 0.84);
+}
+
+.weight-loss-year-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.weight-loss-year-card {
+  position: relative;
+  padding: 4.15rem 1.35rem 1.4rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.94), rgba(248, 241, 231, 0.9));
+}
+
+.weight-loss-year-card > span {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.35rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 0.85rem;
+  background: var(--ink);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.weight-loss-year-note {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  padding: 1.3rem 1.35rem;
+  background: linear-gradient(180deg, rgba(220, 229, 216, 0.9), rgba(255, 250, 243, 0.92));
+}
+
+.weight-loss-year-note strong {
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.weight-loss-response-layout {
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+}
+
+.weight-loss-response-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.weight-loss-faq-top {
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem);
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.weight-loss-clinician-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.35rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.94), rgba(248, 241, 231, 0.9));
+}
+
+.weight-loss-clinician-card .avatar {
+  margin: 0;
+}
+
+.weight-loss-clinician-card strong {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 1100px) {
+  .weight-loss-hero-grid,
+  .weight-loss-reveal-layout,
+  .weight-loss-response-layout,
+  .weight-loss-faq-top {
+    grid-template-columns: 1fr;
+  }
+
+  .weight-loss-biology-grid,
+  .weight-loss-benefit-grid,
+  .weight-loss-year-grid,
+  .weight-loss-response-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .weight-loss-biology-grid,
+  .weight-loss-benefit-grid,
+  .weight-loss-year-grid,
+  .weight-loss-response-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weight-loss-proof-card,
+  .weight-loss-reveal-card,
+  .weight-loss-response-intro,
+  .weight-loss-clinician-card,
+  .weight-loss-year-note {
+    padding: 1.15rem;
+  }
+
+  .weight-loss-visual-card {
+    min-height: 24rem;
+  }
+
+  .weight-loss-visual-copy {
+    padding: 1.15rem;
+  }
+}

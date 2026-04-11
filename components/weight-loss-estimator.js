@@ -46,7 +46,18 @@ function formatMilestoneTimeline(months) {
   return `About ${rounded} months`;
 }
 
-export function WeightLossEstimator() {
+export function WeightLossEstimator({
+  eyebrow = "Weight-loss estimator",
+  title = "See what your goal could look like on a realistic timeline.",
+  description = "Use this planning tool to map your starting weight, target, and pace. Then begin your assessment with a clearer goal in mind.",
+  primaryHref = "/quiz",
+  primaryLabel = "Start assessment",
+  secondaryHref = "/pricing",
+  secondaryLabel = "See programs and pricing",
+  showSecondary = true,
+  disclaimer = "Planning tool only. Progress, treatment fit, and prescribing depend on clinician review, individual response, and ongoing adherence.",
+  className = ""
+}) {
   const [currentWeight, setCurrentWeight] = useState(220);
   const [goalWeight, setGoalWeight] = useState(185);
   const [pace, setPace] = useState(1);
@@ -94,15 +105,12 @@ export function WeightLossEstimator() {
   }
 
   return (
-    <div className="revya-estimator">
+    <div className={["revya-estimator", className].filter(Boolean).join(" ")}>
       <div className="revya-estimator-controls">
         <div>
-          <p className="eyebrow">Weight-loss estimator</p>
-          <h2>See what your goal could look like on a realistic timeline.</h2>
-          <p className="lede-alt">
-            Use this planning tool to map your starting weight, target, and pace. Then begin your
-            assessment with a clearer goal in mind.
-          </p>
+          <p className="eyebrow">{eyebrow}</p>
+          <h2>{title}</h2>
+          <p className="lede-alt">{description}</p>
         </div>
 
         <label className="revya-estimator-field">
@@ -189,16 +197,15 @@ export function WeightLossEstimator() {
         </div>
 
         <div className="revya-estimator-actions">
-          <ActionLink href="/quiz">Start assessment</ActionLink>
-          <ActionLink href="/pricing" variant="ghost">
-            See programs and pricing
-          </ActionLink>
+          <ActionLink href={primaryHref}>{primaryLabel}</ActionLink>
+          {showSecondary ? (
+            <ActionLink href={secondaryHref} variant="ghost">
+              {secondaryLabel}
+            </ActionLink>
+          ) : null}
         </div>
 
-        <p className="estimator-disclaimer">
-          Planning tool only. Progress, treatment fit, and prescribing depend on clinician review,
-          individual response, and ongoing adherence.
-        </p>
+        <p className="estimator-disclaimer">{disclaimer}</p>
       </div>
     </div>
   );

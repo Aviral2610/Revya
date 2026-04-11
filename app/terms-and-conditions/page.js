@@ -66,7 +66,7 @@ export default function TermsPage() {
             <p>
               If you are not satisfied with your experience in the first 30 days of receiving your
               first order, you may request a full refund of your program fees by contacting us at{" "}
-              <a href="mailto:support@revya.com">support@revya.com</a>. Refund requests are
+              the secure Revya patient portal. Refund requests are
               processed within 5–7 business days. This guarantee applies to program fees only and
               does not cover medication costs already dispensed.
             </p>
@@ -138,8 +138,7 @@ export default function TermsPage() {
             <h2>14. Contact</h2>
             <p>
               For questions about these Terms, contact us at:{" "}
-              <a href="mailto:support@revya.com">support@revya.com</a>, call (323) 690-1564, or mail
-              to 131 Continental Dr. Ste 305, Newark, DE 19713.
+              the secure Revya patient portal once live support channels are enabled.
             </p>
           </div>
         </div>

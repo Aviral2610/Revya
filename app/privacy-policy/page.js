@@ -101,8 +101,7 @@ export default function PrivacyPolicyPage() {
             <h2>10. Contact Us</h2>
             <p>
               If you have questions about this Privacy Policy or our data practices, contact us at:{" "}
-              <a href="mailto:support@revya.com">support@revya.com</a> or call (323) 690-1564, or
-              mail to 131 Continental Dr. Ste 305, Newark, DE 19713.
+              the secure Revya patient portal once support channels are enabled for your account.
             </p>
           </div>
         </div>

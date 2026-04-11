@@ -1,26 +1,22 @@
-import {
-  doctors,
-  featuredLogos,
-  homeHeroProofs,
-  homeHeroTabs,
-  homeHighlights,
-  processSteps,
-  pricingGuaranteeHighlights,
-  productCards,
-  testimonials,
-  trustFeatures
-} from "@/lib/site-data";
+import Image from "next/image";
+
 import { JsonLd } from "@/components/json-ld";
-import { QuizEntryPanel } from "@/components/quiz/entry-panel";
+import { WeightLossEstimator } from "@/components/weight-loss-estimator";
+import { ActionLink, SiteFooter, SiteHeader } from "@/components/site-sections";
 import {
-  ActionLink,
-  ArtPanel,
-  DoctorGrid,
-  MockBanner,
-  SiteFooter,
-  SiteHeader,
-  TestimonialGrid
-} from "@/components/site-sections";
+  homeFeaturedStory,
+  homeOfferSummary,
+  homeOutcomeStats,
+  homeProgramSteps,
+  homeSectionLinks,
+  homeTestimonials,
+  homeTrustHighlights,
+  homeWhatYouGet,
+  homeWhyRevyaComparison,
+  homeWhyRevyaPillars,
+  pricingGuaranteeHighlights
+} from "@/lib/site-data";
+import { getImageDimensions } from "@/lib/image-assets";
 import { buildMedicalOrganizationSchema, buildPageSchema, getPageMetadata } from "@/lib/seo";
 
 export const metadata = getPageMetadata("home");
@@ -31,182 +27,172 @@ export default function HomePage() {
       <JsonLd data={buildPageSchema("home", [buildMedicalOrganizationSchema()])} />
       <SiteHeader />
       <main>
-        <section className="hero home-hero">
-          <div className="shell hero-grid">
-            <div className="hero-copy">
-              <p className="eyebrow">Telehealth weight-loss care</p>
-              <h1>Clinician-guided weight loss that stays with you after your prescription.</h1>
-              <p className="lede">
-                Revya brings pricing, assessment, clinician review, discreet delivery, and portal
-                follow-through into one connected path so patients know what happens before they
-                start and after they are approved.
+        <section className="hero home-hero revya-hero">
+          <div className="shell revya-hero-grid">
+            <div className="revya-hero-copy">
+              <p className="eyebrow">Clinician-guided medical weight loss</p>
+              <h1>Start medical weight-loss care with a plan you can actually stay on.</h1>
+              <p className="revya-proofline">
+                Programs from $179/mo, most intakes take about 3 minutes, and prescribing only
+                happens after clinician review.
               </p>
-              <div className="hero-proof-row">
-                {homeHeroProofs.map((item) => (
-                  <article className="hero-proof" key={item.title}>
-                    <strong>{item.title}</strong>
-                    <p>{item.copy}</p>
-                  </article>
-                ))}
-              </div>
-              <div className="hero-actions-row">
+              <p className="lede">
+                Revya combines treatment options, clinician oversight, delivery coordination, and
+                follow-through so the next step stays clear from your first intake to your next
+                refill.
+              </p>
+              <div className="hero-actions-row revya-hero-actions">
                 <ActionLink href="/quiz">Start assessment</ActionLink>
-                <ActionLink href="/weight-loss" variant="ghost">
-                  See programs and pricing
+                <ActionLink href="/pricing" variant="ghost">
+                  See programs & pricing
                 </ActionLink>
               </div>
-              <div className="hero-pill-row">
-                {homeHeroTabs.map((item) => (
+              <p className="guarantee-line">
+                30-day program-fee guarantee on eligible fees. Medication already filled or shipped
+                is excluded.
+              </p>
+              <div className="hero-pill-row revya-anchor-row">
+                {homeSectionLinks.map((item) => (
                   <ActionLink href={item.href} key={item.label} variant="chip">
                     {item.label}
                   </ActionLink>
                 ))}
               </div>
-              <div className="stat-row">
-                {homeHighlights.map((item) => (
-                  <div className="stat-chip" key={item}>
-                    <span />
-                    {item}
+            </div>
+
+            <div className="revya-hero-visual">
+              <div className="revya-hero-frame">
+                <div className="revya-hero-image-wrap">
+                  <Image
+                    alt="Clinician reviewing a weight-loss care plan with a patient"
+                    className="revya-hero-image"
+                    height={getImageDimensions("/images/hero-homepage.jpg").height}
+                    priority
+                    sizes="(max-width: 760px) 100vw, 48vw"
+                    src="/images/hero-homepage.jpg"
+                    width={getImageDimensions("/images/hero-homepage.jpg").width}
+                  />
+                </div>
+                <div className="revya-hero-frame-inner">
+                  <article className="revya-hero-card revya-hero-card-top">
+                    <p className="mini-label">Member result</p>
+                    <strong>31 lbs lost in 5 months</strong>
+                    <span>Featured story below. Results vary by member and adherence.</span>
+                  </article>
+                  <article className="revya-hero-card revya-hero-card-bottom">
+                    <p className="mini-label">Support stays visible</p>
+                    <strong>Refills, messages, appointments, and billing live in one portal.</strong>
+                    <div className="mini-list">
+                      <span>Progress check-ins</span>
+                      <span>Shipment updates</span>
+                      <span>Care-team messages</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="results">
+          <div className="shell section-heading">
+            <div>
+              <p className="eyebrow">Member results</p>
+              <h2>Members do better when the program does not disappear after checkout.</h2>
+              <p className="lede-alt">
+                Revya does not promise instant results. It gives eligible members a clearer
+                starting point, clinician-led treatment decisions, and a visible support system to
+                keep them moving.
+              </p>
+            </div>
+            <ActionLink href="/quiz" variant="ghost">
+              Start assessment
+            </ActionLink>
+          </div>
+          <div className="shell revya-proof-grid">
+            <div className="revya-proof-stats">
+              {homeOutcomeStats.map((item) => (
+                <article className="revya-proof-stat" key={`${item.value}-${item.detail}`}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                  <p>{item.detail}</p>
+                </article>
+              ))}
+              <p className="revya-proof-note">Illustrative member stories. Results vary.</p>
+            </div>
+
+            <article className="revya-story-card">
+              <p className="mini-label">Featured story</p>
+              <strong>{homeFeaturedStory.outcome}</strong>
+              <p className="revya-story-quote">"{homeFeaturedStory.quote}"</p>
+              <p className="revya-story-name">{homeFeaturedStory.name}</p>
+              <ul className="detail-list">
+                {homeFeaturedStory.highlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="revya-visual-proof-card">
+              <div className="revya-visual-proof-image">
+                <Image
+                  alt="Revya patient portal showing progress, tasks, and next steps"
+                  className="revya-proof-image"
+                  height={getImageDimensions("/images/revya-portal-support.jpg").height}
+                  sizes="(max-width: 760px) 100vw, 32vw"
+                  src="/images/revya-portal-support.jpg"
+                  width={getImageDimensions("/images/revya-portal-support.jpg").width}
+                />
+              </div>
+              <div className="revya-visual-proof-copy">
+                <p className="mini-label">Visual proof</p>
+                <strong>Support stays visible after approval.</strong>
+                <p>
+                  The part members notice quickly is continuity. Refills, progress updates,
+                  appointments, and care messages stay connected instead of getting scattered.
+                </p>
+                <div className="mini-list">
+                  <span>Refill reviews</span>
+                  <span>Follow-up booking</span>
+                  <span>Secure messages</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="section section-soft" id="what-you-get">
+          <div className="shell section-heading">
+            <div>
+              <p className="eyebrow">What you get</p>
+              <h2>Everything needed to start care with confidence, not just a prescription path.</h2>
+              <p className="lede-alt">
+                Revya is designed to answer the main buying questions quickly: what is included,
+                how medical oversight works, what support looks like, and where everything lives
+                after you start.
+              </p>
+            </div>
+          </div>
+          <div className="shell revya-offer-layout">
+            <article className="revya-offer-card">
+              <p className="mini-label">{homeOfferSummary.eyebrow}</p>
+              <h3>{homeOfferSummary.title}</h3>
+              <p>{homeOfferSummary.copy}</p>
+              <div className="revya-offer-rows">
+                {homeOfferSummary.rows.map((item) => (
+                  <div className="revya-offer-row" key={item.label}>
+                    <strong>{item.label}</strong>
+                    <span>{item.value}</span>
                   </div>
                 ))}
               </div>
-              <MockBanner
-                copy="The core Revya path is simple: compare programs, complete the assessment, receive clinician review, and manage refills in one secure portal."
-                title="Focused on the main conversion path"
-              />
-            </div>
+              <p className="revya-offer-note">{homeOfferSummary.note}</p>
+              <ActionLink href="/pricing">See programs and pricing</ActionLink>
+            </article>
 
-            <div className="hero-visual">
-              <ArtPanel
-                detail="Patients see how qualification, review, delivery, and support connect before they begin."
-                kind="hero"
-                label="Programs from $179/mo"
-                imageAlt="Telehealth clinician speaking with a patient during a secure online visit"
-                priority
-                imageSrc="/images/hero-homepage.jpg"
-              />
-              <div className="floating-card">
-                <p className="mini-label">Patient portal</p>
-                <strong>Refills, progress, visits, and support stay visible in one place.</strong>
-                <div className="mini-list">
-                  <span>Shipment updates</span>
-                  <span>Care messages</span>
-                  <span>Follow-up booking</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="programs">
-          <div className="shell section-heading">
-            <div>
-              <p className="eyebrow">Programs and pricing</p>
-              <h2>Review the available care paths before you start.</h2>
-              <p className="lede-alt">
-                Revya surfaces program formats and starting prices up front. Final fit still
-                depends on your assessment and clinician review.
-              </p>
-            </div>
-            <ActionLink href="/weight-loss" variant="ghost">
-              Explore the full weight-loss page
-            </ActionLink>
-          </div>
-          <div className="shell product-grid">
-            {productCards.map((product) => (
-              <article className={`product-card product-${product.tone}`} key={product.title}>
-                <div className="product-card-body">
-                  <p className="product-card-note">{product.note}</p>
-                  <h3>{product.title}</h3>
-                  <p className="product-card-price">{product.price}</p>
-                  <p className="product-card-summary">{product.summary}</p>
-                  <ul className="product-card-highlights">
-                    {product.highlights.map((item) => (
-                      <li key={`${product.title}-${item}`}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="product-card-footer">
-                  <ActionLink href="/quiz" variant="ghost">
-                    Start assessment
-                  </ActionLink>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section" id="assessment">
-          <div className="shell split assessment-showcase">
-            <div className="split-copy">
-              <p className="eyebrow">Assessment and qualification</p>
-              <h2>A short intake that explains the next step before any treatment decision.</h2>
-              <p className="lede-alt">
-                The Revya assessment collects the essentials, flags safety considerations, and
-                shows a likely route based on your answers. If you move forward, a licensed
-                clinician reviews the full intake before recommending care.
-              </p>
-              <div className="cta-actions">
-                <ActionLink href="/quiz">Start assessment</ActionLink>
-                <ActionLink href="/weight-loss" variant="ghost">
-                  See programs and pricing
-                </ActionLink>
-              </div>
-            </div>
-            <div className="split-media">
-              <QuizEntryPanel
-                copy="Patients move from intake to review to a preliminary route, then into clinician review if they continue."
-                title="Qualification should feel clear, not confusing."
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="how-it-works">
-          <div className="shell split">
-            <div className="split-copy">
-              <p className="eyebrow">How it works</p>
-              <h2>Assessment first. Clinician review next. Support that continues after delivery.</h2>
-              <p className="lede-alt">
-                The page flow is designed to answer the questions most patients have before they
-                commit: what the program costs, how eligibility is reviewed, what happens after
-                approval, and how ongoing care is managed.
-              </p>
-            </div>
-            <div className="timeline">
-              {processSteps.map((step, index) => (
-                <article className="timeline-step" key={step.title}>
-                  <span>{index + 1}</span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.copy}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section trust-section">
-          <div className="shell trust-panel">
-            <div className="trust-lead">
-              <div>
-                <p className="eyebrow">Built for trust</p>
-                <h2>Everything important stays visible before, during, and after clinician review.</h2>
-              </div>
-              <div className="trust-visual">
-                <ArtPanel
-                  detail="Revya is designed to feel medically grounded: clear review standards, discreet fulfillment, and ongoing portal support."
-                  kind="portal"
-                  label="Clear care model"
-                  imageAlt="Clinician reviewing treatment options with a patient in a consultation setting"
-                  imageSrc="/images/trust-signals.jpg"
-                />
-              </div>
-            </div>
-            <div className="feature-grid">
-              {trustFeatures.map((item) => (
-                <article className="feature-card" key={item.title}>
+            <div className="revya-includes-grid">
+              {homeWhatYouGet.map((item) => (
+                <article className="revya-include-card" key={item.title}>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
                 </article>
@@ -215,161 +201,156 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section credibility-section">
-          <div className="shell credibility-strip">
-            <p className="press-label">What patients want clarified up front</p>
-            <div className="credibility-row">
-              {featuredLogos.map((item) => (
-                <span className="credibility-pill" key={item}>
-                  {item}
-                </span>
+        <section className="section estimator-section" id="estimator">
+          <div className="shell">
+            <WeightLossEstimator />
+          </div>
+        </section>
+
+        <section className="section" id="why-revya">
+          <div className="shell section-heading">
+            <div>
+              <p className="eyebrow">Why Revya works</p>
+              <h2>Support and structure make treatment easier to stay with.</h2>
+              <p className="lede-alt">{homeWhyRevyaComparison.intro}</p>
+            </div>
+          </div>
+          <div className="shell revya-comparison-grid">
+            <article className="revya-compare-card revya-compare-card-muted">
+              <p className="mini-label">Treatment alone</p>
+              <h3>The prescription can be clear, while the experience around it is not.</h3>
+              <ul className="detail-list">
+                {homeWhyRevyaComparison.standalone.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="revya-compare-card revya-compare-card-accent">
+              <p className="mini-label">The Revya program</p>
+              <h3>Revya wraps treatment in the systems that help members keep going.</h3>
+              <ul className="detail-list">
+                {homeWhyRevyaComparison.revya.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+          <div className="shell revya-pillars-grid">
+            {homeWhyRevyaPillars.map((item) => (
+              <article className="revya-pillar-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section" id="how-it-works">
+          <div className="shell section-heading">
+            <div>
+              <p className="eyebrow">How it works</p>
+              <h2>From your first intake to ongoing refills, the path stays straightforward.</h2>
+              <p className="lede-alt">
+                You should be able to understand what happens next before you commit. That is why
+                Revya makes the full sequence visible from intake through follow-up.
+              </p>
+            </div>
+          </div>
+          <div className="shell revya-steps-grid">
+            {homeProgramSteps.map((step, index) => (
+              <article className="revya-step-card" key={step.title}>
+                <span>{index + 1}</span>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </article>
+            ))}
+          </div>
+          <div className="shell revya-process-note">
+            <div>
+              <p className="mini-label">Before you start</p>
+              <strong>You will see your likely route before any treatment decision is made.</strong>
+              <p>
+                The assessment prepares your case for medical review. It does not replace clinician
+                judgment, and it does not generate a prescription on its own.
+              </p>
+            </div>
+            <div className="cta-actions">
+              <ActionLink href="/quiz">Start assessment</ActionLink>
+              <ActionLink href="/pricing" variant="ghost">
+                See programs and pricing
+              </ActionLink>
+            </div>
+          </div>
+        </section>
+
+        <section className="section testimonial-section" id="trust">
+          <div className="shell section-heading">
+            <div>
+              <p className="eyebrow">Why people trust Revya</p>
+              <h2>Enough proof to feel confident before you start.</h2>
+              <p className="lede-alt">
+                Revya is designed to feel medically grounded and buyer-friendly: visible pricing,
+                clinician review before prescribing, structured follow-up, and a clear refund
+                window on eligible program fees.
+              </p>
+            </div>
+          </div>
+          <div className="shell revya-trust-layout">
+            <article className="revya-guarantee-panel">
+              <p className="mini-label">Risk reversal</p>
+              <h3>Start with less guesswork and less downside.</h3>
+              <p>
+                If the program is not right for you early on, eligible program fees are covered by
+                a 30-day guarantee. That gives new members room to start with more confidence.
+              </p>
+              <ul className="detail-list tight">
+                {pricingGuaranteeHighlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <div className="revya-trust-strip">
+                {homeTrustHighlights.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </article>
+
+            <div className="revya-testimonial-grid">
+              {homeTestimonials.map((item) => (
+                <article className="revya-testimonial-card" key={`${item.name}-${item.outcome}`}>
+                  <div className="revya-testimonial-topline">
+                    <span className="mini-label">Member note</span>
+                    <span className="testimonial-outcome">{item.outcome}</span>
+                  </div>
+                  <p>"{item.quote}"</p>
+                  <div className="revya-testimonial-meta">
+                    <strong>{item.name}</strong>
+                    <span>{item.detail}</span>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section" id="patient-portal">
-          <div className="shell split split-reverse">
-            <div className="split-copy">
-              <p className="eyebrow">Patient portal</p>
-              <h2>Revya keeps portal support close to the treatment journey.</h2>
-              <p className="lede-alt">
-                Once care is active, patients can review refill timing, message the care team,
-                upload documents, check billing details, and book follow-ups without leaving the
-                same account.
-              </p>
-              <div className="portal-mini-grid">
-                <article>
-                  <strong>Refill check-ins</strong>
-                  <p>Submit progress updates before your next shipment is reviewed.</p>
-                </article>
-                <article>
-                  <strong>Care messages</strong>
-                  <p>Keep routine questions and updates in a secure, organized thread.</p>
-                </article>
-                <article>
-                  <strong>Visits and documents</strong>
-                  <p>Book follow-ups and upload requested records from the same portal.</p>
-                </article>
-              </div>
-              <div className="cta-actions">
-                <ActionLink href="/login">Open patient login</ActionLink>
-                <ActionLink href="/dashboard" variant="ghost">
-                  Preview patient portal
-                </ActionLink>
-              </div>
-            </div>
-            <div className="split-media">
-              <ArtPanel
-                detail="One secure portal keeps the treatment plan, messages, tasks, billing, and next steps connected."
-                kind="portal"
-                label="Ongoing support"
-                imageAlt="Patient dashboard mockup with refill tasks and progress tracking"
-                imageSrc="/images/revya-portal-support.jpg"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="shell">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Clinical support</p>
-                <h2>More than one person is keeping your care experience moving.</h2>
-              </div>
-            </div>
-            <DoctorGrid doctors={doctors} />
-          </div>
-        </section>
-
-        <section className="section testimonial-section">
-          <div className="shell">
-            <div className="testimonial-showcase">
-              <div>
-                <p className="eyebrow">Member experience</p>
-                <h2>Patients should understand the program before they feel pressure to buy it.</h2>
-                <p className="lede-alt">
-                  The strongest feedback theme is clarity: members know what the program costs,
-                  how review works, and what support looks like after they start.
-                </p>
-              </div>
-              <aside className="testimonial-proof-card">
-                <p className="mini-label">Conversion signal</p>
-                <strong>18,000+ patients have trusted Revya to start with clarity instead of checkout pressure.</strong>
-                <div className="mini-list">
-                  <span>Pricing before commitment</span>
-                  <span>Clinician review stays visible</span>
-                  <span>Portal support continues after approval</span>
-                </div>
-              </aside>
-            </div>
-            <div className="section-heading compact">
-              <div>
-                <p className="eyebrow">Patient notes</p>
-                <h2>Why members say the experience feels easier to continue.</h2>
-              </div>
-            </div>
-            <TestimonialGrid testimonials={testimonials.slice(0, 4)} />
-          </div>
-        </section>
-
-        <section className="section estimator-section">
-          <div className="shell">
-            <div className="estimator-card">
-              <p className="eyebrow">After approval</p>
-              <h3>One portal keeps care from fragmenting after the first delivery.</h3>
-              <p className="lede-alt">
-                Revya keeps refill reviews, follow-up visits, secure messages, documents, and
-                billing connected so the next step stays obvious between visits.
-              </p>
-              <div className="estimator-mini-grid">
-                <article>
-                  <strong>1 portal</strong>
-                  <span>for refills, visits, messages, billing, and documents</span>
-                </article>
-                <article>
-                  <strong>Refill check-ins</strong>
-                  <span>stay attached to clinician review instead of scattered support threads</span>
-                </article>
-                <article>
-                  <strong>Follow-up ready</strong>
-                  <span>so dose questions and side effects can be addressed without losing momentum</span>
-                </article>
-              </div>
-              <p className="estimator-disclaimer">
-                Programs, prescribing, and dose changes still depend on individual clinician review.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="section final-cta">
-          <div className="shell cta-panel">
+        <section className="section final-cta revya-final-cta">
+          <div className="shell revya-final-panel">
             <div>
-              <p className="eyebrow">Next step</p>
-              <h2>Start the assessment and see whether Revya care may fit.</h2>
+              <p className="eyebrow">Ready to start</p>
+              <h2>Start your assessment and see whether Revya fits your goals.</h2>
               <p className="lede-alt">
-                Begin with a short intake, review your route, and move into clinician review if
-                you decide to continue.
+                Most patients finish the intake in about 3 minutes. From there, a clinician
+                reviews your information before any treatment recommendation is made.
               </p>
             </div>
-            <div className="cta-side">
-              <div className="guarantee-card">
-                <p className="mini-label">30-day program-fee guarantee</p>
-                <strong>Love your weight loss in 30 days or your money back.</strong>
-                <ul className="detail-list tight cta-proof-list">
-                  {pricingGuaranteeHighlights.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="cta-actions">
-                <ActionLink href="/quiz">Start assessment</ActionLink>
-                <ActionLink href="/weight-loss" variant="ghost">
-                  See programs and pricing
-                </ActionLink>
-              </div>
+            <div className="revya-final-actions">
+              <ActionLink href="/quiz">Start assessment</ActionLink>
+              <ActionLink href="/pricing" variant="ghost">
+                See programs and pricing
+              </ActionLink>
+              <p className="guarantee-line">
+                30-day program-fee guarantee on eligible fees. Prescribing remains clinician-led.
+              </p>
             </div>
           </div>
         </section>

@@ -112,7 +112,7 @@ export default function PricingPage() {
                 },
                 {
                   q: "Can I cancel anytime?",
-                  a: "Yes. You can cancel your program at any time by contacting support@revya.com. Cancellation does not affect medication already dispensed."
+                  a: "Yes. You can cancel your program at any time through the Revya patient portal once support workflows are enabled. Cancellation does not affect medication already dispensed."
                 }
               ].map((item) => (
                 <div className="faq-item" key={item.q}>

@@ -5369,3 +5369,733 @@ body {
     flex-direction: column;
   }
 }
+
+/* Homepage landing rewrite */
+.revya-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(22rem, 0.98fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.revya-hero-copy {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.revya-hero-copy h1 {
+  max-width: 10ch;
+}
+
+.revya-proofline {
+  max-width: 38rem;
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.revya-hero-actions {
+  margin-top: 0.35rem;
+}
+
+.revya-anchor-row {
+  margin-top: 0.25rem;
+}
+
+.revya-hero-visual {
+  position: relative;
+}
+
+.revya-hero-frame,
+.revya-proof-stat,
+.revya-story-card,
+.revya-visual-proof-card,
+.revya-offer-card,
+.revya-include-card,
+.revya-compare-card,
+.revya-pillar-card,
+.revya-step-card,
+.revya-process-note,
+.revya-guarantee-panel,
+.revya-testimonial-card,
+.revya-final-panel,
+.revya-estimator,
+.revya-milestone-card {
+  border-radius: calc(var(--radius-lg) + 2px);
+  border: 1px solid rgba(23, 32, 26, 0.08);
+  box-shadow: var(--shadow-lift);
+}
+
+.revya-hero-frame {
+  position: relative;
+  overflow: hidden;
+  min-height: 34rem;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 250, 243, 0.56), transparent 22%),
+    linear-gradient(135deg, #6c846f 0%, #2a3b30 60%, #17201a 100%);
+  box-shadow: var(--shadow-premium);
+}
+
+.revya-hero-image-wrap {
+  position: absolute;
+  inset: 1rem;
+  overflow: hidden;
+  border-radius: 1.65rem;
+}
+
+.revya-hero-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(23, 32, 26, 0.18) 0%, rgba(23, 32, 26, 0.08) 34%, rgba(23, 32, 26, 0.5) 100%);
+}
+
+.revya-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.revya-hero-frame-inner {
+  position: relative;
+  z-index: 2;
+  min-height: 32rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.revya-hero-card {
+  max-width: 17rem;
+  padding: 1rem 1.05rem;
+  border-radius: 1.35rem;
+  background: rgba(255, 253, 249, 0.92);
+  border: 1px solid rgba(23, 32, 26, 0.08);
+  box-shadow: 0 18px 40px rgba(17, 24, 18, 0.16);
+}
+
+.revya-hero-card-top {
+  margin-left: auto;
+}
+
+.revya-hero-card-bottom {
+  background: rgba(247, 240, 231, 0.94);
+}
+
+.revya-hero-card strong,
+.revya-proof-stat strong,
+.revya-story-card strong,
+.revya-offer-card h3,
+.revya-compare-card h3,
+.revya-guarantee-panel h3,
+.revya-final-panel h2,
+.revya-estimator-summary strong,
+.revya-milestone-card strong {
+  display: block;
+}
+
+.revya-hero-card strong {
+  margin: 0.2rem 0 0.45rem;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.revya-hero-card span {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.revya-proof-grid,
+.revya-offer-layout,
+.revya-comparison-grid,
+.revya-trust-layout,
+.revya-final-panel,
+.revya-estimator {
+  display: grid;
+  gap: 1rem;
+}
+
+.revya-proof-grid {
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 0.95fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.revya-proof-stats {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.revya-proof-stat {
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.94), rgba(247, 238, 227, 0.88));
+}
+
+.revya-proof-stat strong {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 0.95;
+}
+
+.revya-proof-stat span {
+  display: block;
+  margin-top: 0.45rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.revya-proof-stat p,
+.revya-proof-note,
+.revya-story-card p,
+.revya-visual-proof-copy p,
+.revya-offer-card p,
+.revya-include-card p,
+.revya-pillar-card p,
+.revya-step-card p,
+.revya-process-note p,
+.revya-guarantee-panel p,
+.revya-testimonial-card p,
+.revya-testimonial-meta span,
+.revya-estimator-controls p,
+.revya-estimator-summary p,
+.revya-milestone-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.revya-proof-note {
+  padding-left: 0.35rem;
+  font-size: 0.88rem;
+}
+
+.revya-story-card,
+.revya-offer-card,
+.revya-compare-card,
+.revya-guarantee-panel,
+.revya-testimonial-card,
+.revya-pillar-card,
+.revya-step-card,
+.revya-process-note {
+  padding: 1.5rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.94), rgba(248, 241, 231, 0.9));
+}
+
+.revya-story-card strong {
+  margin-top: 0.15rem;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.revya-story-quote {
+  margin: 1rem 0;
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.revya-story-name {
+  margin-bottom: 0.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.revya-visual-proof-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.82), rgba(236, 227, 214, 0.9));
+}
+
+.revya-visual-proof-image {
+  position: absolute;
+  inset: 0;
+}
+
+.revya-visual-proof-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(23, 32, 26, 0.08) 0%, rgba(23, 32, 26, 0.14) 36%, rgba(23, 32, 26, 0.78) 100%);
+}
+
+.revya-proof-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.revya-visual-proof-copy {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  padding: 1.5rem;
+  color: var(--white);
+}
+
+.revya-visual-proof-copy strong,
+.revya-final-panel h2 {
+  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+  line-height: 1.1;
+}
+
+.revya-visual-proof-copy p,
+.revya-final-panel .lede-alt {
+  color: rgba(255, 250, 243, 0.84);
+}
+
+.revya-offer-layout {
+  grid-template-columns: minmax(18rem, 0.92fr) minmax(0, 1.08fr);
+  align-items: start;
+}
+
+.revya-offer-card {
+  padding: 1.7rem;
+  box-shadow: var(--shadow-premium);
+}
+
+.revya-offer-card h3 {
+  margin: 0.1rem 0 0.8rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.02;
+}
+
+.revya-offer-rows,
+.revya-includes-grid,
+.revya-pillars-grid,
+.revya-steps-grid,
+.revya-testimonial-grid,
+.revya-milestone-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.revya-offer-rows {
+  margin-top: 1.2rem;
+}
+
+.revya-offer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(23, 32, 26, 0.08);
+}
+
+.revya-offer-row strong {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.revya-offer-row span {
+  white-space: nowrap;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.revya-offer-note {
+  margin: 1rem 0 1.15rem;
+  font-size: 0.9rem;
+}
+
+.revya-includes-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.revya-include-card {
+  padding: 1.35rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.9), rgba(248, 241, 231, 0.86));
+}
+
+.revya-include-card h3,
+.revya-pillar-card h3,
+.revya-step-card h3,
+.revya-guarantee-panel h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.18rem;
+  line-height: 1.2;
+}
+
+.revya-estimator {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  padding: 1.8rem;
+  background: linear-gradient(135deg, rgba(255, 253, 249, 0.98), rgba(232, 221, 204, 0.86));
+  box-shadow: var(--shadow-premium);
+}
+
+.revya-estimator-controls,
+.revya-estimator-summary {
+  display: grid;
+  gap: 1rem;
+}
+
+.revya-estimator h2 {
+  margin: 0.1rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.85rem);
+  line-height: 1.02;
+}
+
+.revya-estimator-field,
+.revya-estimator-total,
+.revya-milestone-card {
+  padding: 1rem 1.05rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 253, 249, 0.78);
+  border: 1px solid rgba(23, 32, 26, 0.08);
+}
+
+.revya-estimator-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.revya-estimator-value-row,
+.revya-milestone-copy,
+.revya-testimonial-topline,
+.revya-testimonial-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.revya-estimator-value-row {
+  align-items: baseline;
+  margin: 0.35rem 0 0.8rem;
+}
+
+.revya-estimator-value-row strong,
+.revya-estimator-total strong {
+  color: var(--ink);
+  font-size: 1.55rem;
+  line-height: 1.1;
+}
+
+.revya-estimator-value-row span,
+.revya-milestone-copy span,
+.revya-testimonial-meta span {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.revya-range {
+  width: 100%;
+  appearance: none;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(92, 116, 96, 0.94), rgba(211, 161, 104, 0.88));
+}
+
+.revya-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 253, 249, 0.94);
+  background: var(--ink);
+  box-shadow: 0 6px 18px rgba(23, 32, 26, 0.22);
+}
+
+.revya-range::-moz-range-thumb {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 253, 249, 0.94);
+  background: var(--ink);
+  box-shadow: 0 6px 18px rgba(23, 32, 26, 0.22);
+}
+
+.revya-pace-row,
+.revya-estimator-actions,
+.revya-trust-strip {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.revya-pace-button {
+  min-height: 2.8rem;
+  padding: 0.7rem 0.95rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(23, 32, 26, 0.08);
+  background: rgba(255, 253, 249, 0.92);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.revya-pace-button.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.revya-estimator-total {
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.9), rgba(248, 241, 231, 0.86));
+}
+
+.revya-milestone-copy {
+  align-items: end;
+}
+
+.revya-milestone-track {
+  width: 100%;
+  height: 0.5rem;
+  margin: 0.8rem 0;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(23, 32, 26, 0.08);
+}
+
+.revya-milestone-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sage), var(--gold));
+}
+
+.revya-comparison-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.revya-compare-card-muted {
+  background: linear-gradient(180deg, rgba(245, 238, 229, 0.92), rgba(255, 250, 243, 0.9));
+}
+
+.revya-compare-card-accent {
+  background: linear-gradient(180deg, rgba(220, 229, 216, 0.92), rgba(255, 250, 243, 0.94));
+}
+
+.revya-pillars-grid,
+.revya-steps-grid,
+.revya-testimonial-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.revya-pillar-card {
+  padding: 1.3rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.88), rgba(248, 241, 231, 0.84));
+}
+
+.revya-step-card {
+  position: relative;
+  padding-top: 4.1rem;
+}
+
+.revya-step-card span {
+  position: absolute;
+  top: 1.3rem;
+  left: 1.35rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.85rem;
+  background: var(--ink);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.revya-process-note {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.revya-process-note strong {
+  display: block;
+  margin: 0.15rem 0 0.55rem;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.revya-trust-layout {
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+}
+
+.revya-guarantee-panel {
+  box-shadow: var(--shadow-premium);
+}
+
+.revya-trust-strip span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 253, 249, 0.82);
+  border: 1px solid rgba(23, 32, 26, 0.08);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.revya-testimonial-grid {
+  margin-top: 0;
+}
+
+.revya-testimonial-card {
+  padding: 1.35rem;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.92), rgba(248, 241, 231, 0.9));
+}
+
+.revya-testimonial-card p {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.revya-testimonial-topline {
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.revya-testimonial-meta {
+  margin-top: 1rem;
+  align-items: end;
+}
+
+.revya-testimonial-meta strong {
+  color: var(--ink);
+}
+
+.revya-final-cta {
+  padding-top: 3rem;
+}
+
+.revya-final-panel {
+  grid-template-columns: minmax(0, 1.16fr) minmax(18rem, 0.84fr);
+  align-items: center;
+  padding: 2rem;
+  background:
+    radial-gradient(circle at top right, rgba(211, 161, 104, 0.2), transparent 28%),
+    linear-gradient(135deg, #17201a 0%, #24342a 56%, #32463a 100%);
+  box-shadow: var(--shadow-premium);
+}
+
+.revya-final-panel .eyebrow,
+.revya-final-panel .mini-label {
+  color: rgba(255, 250, 243, 0.68);
+}
+
+.revya-final-actions {
+  display: grid;
+  gap: 0.85rem;
+  justify-items: start;
+}
+
+.revya-final-actions .button.ghost {
+  background: rgba(255, 250, 243, 0.08);
+  border-color: rgba(255, 250, 243, 0.18);
+  color: var(--white);
+}
+
+.revya-final-actions .guarantee-line {
+  margin-top: 0.1rem;
+  color: rgba(255, 250, 243, 0.84);
+  background: rgba(255, 250, 243, 0.08);
+  border-color: rgba(255, 250, 243, 0.16);
+}
+
+@media (max-width: 1100px) {
+  .revya-proof-grid,
+  .revya-offer-layout,
+  .revya-trust-layout,
+  .revya-final-panel,
+  .revya-estimator {
+    grid-template-columns: 1fr;
+  }
+
+  .revya-pillars-grid,
+  .revya-steps-grid,
+  .revya-testimonial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .revya-hero-grid,
+  .revya-proof-grid,
+  .revya-comparison-grid,
+  .revya-pillars-grid,
+  .revya-steps-grid,
+  .revya-testimonial-grid,
+  .revya-includes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .revya-hero-actions,
+  .revya-process-note .cta-actions,
+  .revya-final-actions,
+  .revya-estimator-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .revya-hero-frame {
+    min-height: 28rem;
+  }
+
+  .revya-hero-frame-inner {
+    min-height: 26rem;
+  }
+
+  .revya-process-note {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .revya-offer-row,
+  .revya-estimator-value-row,
+  .revya-milestone-copy,
+  .revya-testimonial-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .revya-hero-frame,
+  .revya-story-card,
+  .revya-offer-card,
+  .revya-estimator,
+  .revya-compare-card,
+  .revya-guarantee-panel,
+  .revya-process-note,
+  .revya-final-panel {
+    padding: 1.15rem;
+  }
+
+  .revya-hero-image-wrap {
+    inset: 0.8rem;
+    border-radius: 1.35rem;
+  }
+
+  .revya-hero-card {
+    max-width: 14rem;
+    padding: 0.9rem;
+  }
+
+  .revya-visual-proof-copy,
+  .revya-testimonial-card,
+  .revya-include-card,
+  .revya-step-card,
+  .revya-pillar-card {
+    padding: 1.1rem;
+  }
+}
